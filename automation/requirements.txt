@@ -1,5 +1,7 @@
 langchain
 langchain-openai
+langchain-core
+langgraph
 chromadb
 typer
 sentence-transformers
