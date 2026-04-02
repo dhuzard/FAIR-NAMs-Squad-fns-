@@ -71,7 +71,7 @@ def search_you_engine(query: str) -> str:
     if not api_key:
         return "ERROR: 'YOU_API_KEY' is not set in the environment variables."
         
-    url = "https://api.ydc-index.io/v1/search"
+    url = "https://ydc-index.io/v1/search"
     headers = {"X-API-Key": api_key, "Accept": "application/json"}
     params = {"query": query}
     
@@ -81,11 +81,11 @@ def search_you_engine(query: str) -> str:
         data = resp.json()
         
         snippets = []
-        hits = data.get("hits", [])
-        if not hits:
-            return "No web results found on You.com."
+        web_results = data.get("results", {}).get("web", [])
+        if not web_results:
+            return f"No web results found on You.com. Raw response structure: {list(data.keys())}"
             
-        for count, hit in enumerate(hits[:5]):
+        for count, hit in enumerate(web_results[:5]):
             title = hit.get("title", "No Title")
             link = hit.get("url", "No URL")
             description = "\n".join(hit.get("snippets", []))

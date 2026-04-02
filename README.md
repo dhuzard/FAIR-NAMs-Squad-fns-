@@ -57,18 +57,18 @@ rubric
 
 ---
 
-## 🔍 Critical Review & Roadmap
+## 🚀 Version 2.0 Architectural Upgrades
+The squad has been upgraded from a static RAG pipeline to an event-driven **LangGraph Multi-Agent State Machine**. 
 
-### Current Limitations
-1.  **Manual Context Loading**: Currently, the AI (Me) must manually "read" the files in the `KB` folders. There is no automated vector database or RAG pipeline.
-2.  **No Execution Environment**: The agents are "simulated" personas. They cannot autonomously run PHP code or executing SPARQL queries unless I (the AI) run the tools for them.
-3.  **Static Personas**: The `persona.md` files are static. They do not evolve automatically based on conversation history unless manually updated.
+### Active Capabilities
+-   **Live Web Browsing:** Dr. Nexus and Semantica can actively search the live web using the **You.com API** and the **PubMed API**, breaking free from static local PDFs.
+-   **Autonomous File I/O:** The Scribe agent can progressively write manuscript sections directly to the local disk (`Drafts/` directory).
+-   **Semantic Validation:** Agents can perform live lookups against `Schema.org`.
 
-### Critical Improvements (Roadmap)
--   [ ] **Automated RAG Pipeline**: Implement a script (Python/LangChain) that watches the `KB` folders, chunks documents, and embeds them into a local vector store (e.g., ChromaDB).
--   [ ] **Agentic CLI**: Create a simple CLI tool (`./squad chat`) that allows you to chat with a specific agent directly in the terminal, loading their specific context.
--   [ ] **CI/CD Integration**: TechLead should be able to trigger GitHub Actions to run tests or validate ontology files (SHACL) automatically.
--   [ ] **Memory Persistence**: Implement a `memory.json` for each agent to store "learned" facts across different sessions.
+## 🔍 Future Roadmap
+While Phase 1 (Data Schema mapping) and Phase 2 (LangGraph Tools) are complete, further technical evolution is required to hit production readiness.
+
+👉 **View the full development pipeline in our roadmap:** [`Future_Improvements_TODO.md`](Future_Improvements_TODO.md)
 
 ---
 
